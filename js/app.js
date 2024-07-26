@@ -1,6 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
 // 1) 3 user choicew of "rock", "paper", "scissors"
 
+const choices = ['rock', 'paper', 'scissors']
+
 
 
 
@@ -13,9 +15,13 @@
 /*-------------------------------- Variables --------------------------------*/
 // 2) Define any variables for state 
 // the players
+let playerChoice
 // the comp choice
+let computerChoice
 // the match result - win/lose/draw
 // A result message  - display the result / who won
+let msg
+
 
 
 
@@ -28,6 +34,7 @@
 
 /*------------------------ Cached Element References ------------------------*/
 // 3) reference to the DOM element to display messages 
+const resultDisplayEl = document.querySelector('#result-display')
 // 3 button DOM references for the rock paper scissors
 
 
