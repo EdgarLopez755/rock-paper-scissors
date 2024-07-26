@@ -48,13 +48,41 @@ const resultDisplayEl = document.querySelector('#result-display')
 
 /*-------------------------------- Functions --------------------------------*/
 // handle player click
+const getPlayerChoice = (event) => {
+    console.log('getPlayerChoice:', event);
+    playerChoice = event.target.id
+  }
 // handle generating random selections for the computer 
+const getComputerChoice = () => {
+    const randomIdex = Math.floor(Math.random() * choices.length)
+    computerChoice = choices[randomIdex]
+   
+}
 // compare player and computer choices - check for a winner 
-// if/else comparison to all choices 
-// rock beats scissors/ scissors beat paper/ 
+const compare = () => {
+    msg = 'You lose! Try again?'
+    // if/else comparison to all choices 
+    // rock beats scissors/ scissors beat paper/ 
+    // incuding player and comp choices in the message 
+    // clearly indicating who won/result
+    if(playerChoice === computerChoice){
+        msg = "You Tied!"
+    } else if(playerChoice === choices[0] && computerChoice === choices [2]){
+        msg = "You Win!"
+    } else if(playerChoice === choices[1] && computerChoice === choices[0]) {
+        msg = "You Win!"
+    } else if(playerChoice === choices[2] && computerChoice === choices[1]) {
+        msg = "You Win"
+    } else {
+        msg = "You Lose! Try again?"
+    }
+    
+}
+
 //  render a wi/lose/draw message to the player 
-// incuding player and comp choices in the message 
-// clearly indicating who won/result
+const render = () => {
+    resultDisplayEl.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}. ${msg}`
+}
 
 
 
@@ -62,7 +90,23 @@ const resultDisplayEl = document.querySelector('#result-display')
 
 
 
+const play = (event) => {
+    getPlayerChoice(event);
 
+    getPlayerChoice(event)
+    getComputerChoice()
+    compare()
+    render()
+}
+    
+
+
+
+
+
+// // const play = (event) => {
+//     console.log(event.target)
+// }
 
 
 
